@@ -1,7 +1,16 @@
 /* @file test/test_app_log.c
- * @date 
- *       2021-12-15 DG remove test for unused functions:
- *                     app_log_config_get/set
+ * @brief Define test elements and functions for testing.
+ * @author Otso Jousimaa <otso@ojousima.net>
+ * @date 2020-07-13
+ * @detail _setup, _teardown,
+ *       _purge_Expect, 
+ *       _read_boot_count_Expect, _not_found_Expect, noflash_Expect,
+ *       sample_process_expect,_read_expect
+ *       store_block_expect, _expect_nomem
+ *       test_app_log_init_nostored
+ *     and others 
+ * 
+ * @copyright Ruuvi Innovations Ltd, license BSD-3-Clause.
  */
 #include "unity.h"
 
@@ -823,7 +832,6 @@ void test_app_log_process_nomem_block (void)
     err_code = app_log_process (&sample);
     TEST_ASSERT (RD_SUCCESS == err_code);
 }
-#if     0 // unused functions should not be tested          \/  \/  \/
 /**
  * @brief Configure logging.
  *
@@ -877,8 +885,6 @@ void test_app_log_config_set_notinit (void)
     err_code |= app_log_config_set (&defaults);
     TEST_ASSERT (RD_ERROR_INVALID_STATE == err_code);
 }
-#endif  //  unused functions should not be tested    /\    /\   /\
-
 /**
  * @brief Read current logging configuration.
  *
